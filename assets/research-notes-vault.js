@@ -85,6 +85,62 @@
       .replace(/%%TOKEN(\d+)%%/g, (_, index) => tokens[Number(index)] || '');
   };
 
+  const splitTableRow = (source) => {
+    let row = String(source).trim();
+    if (!row.includes('|')) return null;
+    if (row.startsWith('|')) row = row.slice(1);
+    if (row.endsWith('|') && !row.endsWith('\\|')) row = row.slice(0, -1);
+
+    const cells = [];
+    let current = '';
+    let inCode = false;
+
+    for (let index = 0; index < row.length; index += 1) {
+      const character = row[index];
+      const escaped = index > 0 && row[index - 1] === '\\';
+
+      if (character === '`' && !escaped) inCode = !inCode;
+      if (character === '|' && !inCode && !escaped) {
+        cells.push(current.trim());
+        current = '';
+      } else {
+        current += character;
+      }
+    }
+
+    cells.push(current.trim());
+    return cells;
+  };
+
+  const tableAlignment = (source) => {
+    const marker = String(source).replace(/\s/g, '');
+    if (!/^:?-{3,}:?$/.test(marker)) return null;
+    if (marker.startsWith(':') && marker.endsWith(':')) return 'center';
+    if (marker.endsWith(':')) return 'right';
+    return 'left';
+  };
+
+  const renderTable = (headers, alignments, rows) => {
+    const cellClass = (alignment) => ` class="is-${alignment}"`;
+    const header = headers.map((cell, index) =>
+      `<th scope="col"${cellClass(alignments[index])}>${renderInline(cell)}</th>`
+    ).join('');
+    const body = rows.map((row) => {
+      const cells = headers.map((_, index) =>
+        `<td${cellClass(alignments[index])}>${renderInline(row[index] || '')}</td>`
+      ).join('');
+      return `<tr>${cells}</tr>`;
+    }).join('');
+
+    return `
+      <div class="private-table-scroll" role="region" aria-label="Markdown table" tabindex="0">
+        <table>
+          <thead><tr>${header}</tr></thead>
+          <tbody>${body}</tbody>
+        </table>
+      </div>`;
+  };
+
   const renderMarkdown = (source) => {
     const markdown = String(source).replace(/<!--[\s\S]*?-->/g, '').replace(/\r\n/g, '\n').trim();
     if (!markdown) return '';
@@ -114,7 +170,9 @@
       listType = type;
     };
 
-    for (const line of markdown.split('\n')) {
+    const lines = markdown.split('\n');
+    for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+      const line = lines[lineIndex];
       const fence = line.match(/^```([A-Za-z0-9_-]*)\s*$/);
       if (fence) {
         flushParagraph();
@@ -132,6 +190,35 @@
 
       if (codeFence !== null) {
         codeLines.push(line);
+        continue;
+      }
+
+      const headerCells = splitTableRow(line);
+      const separatorCells = lineIndex + 1 < lines.length
+        ? splitTableRow(lines[lineIndex + 1])
+        : null;
+      const alignments = separatorCells?.map(tableAlignment);
+      if (
+        headerCells &&
+        headerCells.length > 1 &&
+        separatorCells &&
+        separatorCells.length === headerCells.length &&
+        alignments.every(Boolean)
+      ) {
+        flushParagraph();
+        closeList();
+        const rows = [];
+        let rowIndex = lineIndex + 2;
+
+        while (rowIndex < lines.length && lines[rowIndex].trim()) {
+          const cells = splitTableRow(lines[rowIndex]);
+          if (!cells) break;
+          rows.push(cells);
+          rowIndex += 1;
+        }
+
+        output.push(renderTable(headerCells, alignments, rows));
+        lineIndex = rowIndex - 1;
         continue;
       }
 

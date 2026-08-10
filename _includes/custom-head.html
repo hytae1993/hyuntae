@@ -1,3 +1,17 @@
 <meta name="theme-color" content="#142623">
 {% if page.private_page %}<meta name="robots" content="noindex, nofollow, noarchive">{% endif %}
-<link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}?v=20260811-2">
+{% if page.math %}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+</script>
+{% endif %}
+<link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}?v=20260811-3">

@@ -714,6 +714,67 @@ body {
   border-left: .2rem solid var(--portfolio-accent);
 }
 
+.private-table-scroll {
+  max-width: 100%;
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--portfolio-line);
+  border-radius: .25rem;
+  overscroll-behavior-inline: contain;
+}
+
+.private-table-scroll:focus {
+  outline: 2px solid var(--portfolio-accent);
+  outline-offset: 2px;
+}
+
+.private-markdown table {
+  width: 100%;
+  min-width: 42rem;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: var(--body-bg);
+}
+
+.private-markdown th,
+.private-markdown td {
+  padding: .85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid var(--portfolio-line);
+  border-bottom: 1px solid var(--portfolio-line);
+}
+
+.private-markdown th {
+  color: var(--portfolio-ink);
+  background: var(--portfolio-soft);
+  font-family: var(--text-font);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.private-markdown td {
+  font-size: .86rem;
+}
+
+.private-markdown th:last-child,
+.private-markdown td:last-child {
+  border-right: 0;
+}
+
+.private-markdown tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.private-markdown .is-center {
+  text-align: center;
+}
+
+.private-markdown .is-right {
+  text-align: right;
+}
+
 @keyframes private-notes-reveal {
   from { opacity: 0; transform: translateY(.35rem); }
   to { opacity: 1; transform: translateY(0); }
