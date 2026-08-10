@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "FLOWER: A Flow-Matching Solver for Inverse Problems"
-date: 2026-04-24 00:00:00 +0900
-publication: ICLR 2026
+title: "Diffusion Models as Plug-and-Play Priors"
+date: 2022-06-17 00:00:00 +0900
+publication: NeurIPS 2022
 section: papers
 task: Inverse Problems
 categories: [papers]
@@ -18,4 +18,3 @@ math: true
 ## 3. 이 논문의 방법
 
 ## 4. 관련 수학이나 인공지능 개념 정리
-

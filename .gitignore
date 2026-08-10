@@ -6,4 +6,4 @@ _site/
 vendor/
 Gemfile.lock
 .DS_Store
-
+private_content/

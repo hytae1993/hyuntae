@@ -53,6 +53,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - private_content
+  - scripts
   - vendor
   - _templates
-
