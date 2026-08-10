@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="portfolio-page">
+  <section class="portfolio-hero" aria-labelledby="portfolio-title">
+    <p class="section-kicker">{{ site.data.portfolio.eyebrow }}</p>
+    <h1 id="portfolio-title">{{ site.data.portfolio.headline }}</h1>
+    <p class="portfolio-intro">{{ site.data.portfolio.intro }}</p>
+    <div class="portfolio-links">
+      <a class="primary-link" href="{{ '/research/' | relative_url }}">Explore research notes <span aria-hidden="true">→</span></a>
+      <a href="https://github.com/hytae1993">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  {% if site.data.portfolio.projects and site.data.portfolio.projects.size > 0 %}
+  <section class="portfolio-section" aria-labelledby="selected-work-title">
+    <div class="section-heading">
+      <p class="section-kicker">Portfolio</p>
+      <h2 id="selected-work-title">Selected work</h2>
+    </div>
+    <div class="project-list">
+      {% for project in site.data.portfolio.projects %}
+      <a class="project-item" href="{{ project.url | relative_url }}">
+        <span class="project-number">0{{ forloop.index }}</span>
+        <span class="project-copy"><strong>{{ project.title }}</strong><small>{{ project.summary }}</small></span>
+        <span class="project-meta">{{ project.meta }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="portfolio-section" aria-labelledby="archive-title">
+    <div class="section-heading">
+      <p class="section-kicker">Knowledge archive</p>
+      <h2 id="archive-title">What I study</h2>
+    </div>
+    <div class="archive-grid">
+      <a class="archive-card" href="{{ '/research/' | relative_url }}">
+        <span class="archive-card-index">01</span>
+        <h3>Research Notes</h3>
+        <p>공부한 논문을 연구 task별로 정리합니다.</p>
+        <span class="archive-card-link">View notes →</span>
+      </a>
+      <a class="archive-card" href="{{ '/mathematics/' | relative_url }}">
+        <span class="archive-card-index">02</span>
+        <h3>Mathematics</h3>
+        <p>선형대수, 확률·통계, 기하학, 최적화를 공부합니다.</p>
+        <span class="archive-card-link">View mathematics →</span>
+      </a>
+      <a class="archive-card" href="{{ '/coding/' | relative_url }}">
+        <span class="archive-card-index">03</span>
+        <h3>Coding</h3>
+        <p>구현 과정에서 발견한 문제와 해결 방법을 기록합니다.</p>
+        <span class="archive-card-link">View coding →</span>
+      </a>
+    </div>
+  </section>
+
+  {% assign recent_posts = site.posts | slice: 0, 3 %}
+  {% if recent_posts.size > 0 %}
+  <section class="portfolio-section" aria-labelledby="recent-title">
+    <div class="section-heading">
+      <p class="section-kicker">Writing</p>
+      <h2 id="recent-title">Recent notes</h2>
+    </div>
+    <div class="notes-list">
+      {% for post in recent_posts %}{% include post-list-item.html post=post %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</div>
+

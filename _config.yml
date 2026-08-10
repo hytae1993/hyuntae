@@ -1,0 +1,58 @@
+# Site
+title: Hyuntae Choi
+description: Research notes, mathematics, and code.
+url: https://hytae1993.github.io
+baseurl: /hyuntae
+lang: ko-KR
+timezone: Asia/Seoul
+permalink: /:categories/:year/:month/:day/:title/
+
+# Theme
+remote_theme: vszhub/not-pure-poole
+cover_bg_color: "rgb(20, 38, 35)"
+cover_color: "rgb(245, 248, 245)"
+
+# Build
+plugins:
+  - jekyll-remote-theme
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# SEO
+author:
+  name: Hyuntae Choi
+  url: https://github.com/hytae1993
+
+social:
+  name: Hyuntae Choi
+  links:
+    - https://github.com/hytae1993
+
+twitter:
+  card: summary
+
+# Keep generated output clean.
+exclude:
+  - .bundle
+  - .git
+  - .github
+  - .jekyll-cache
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - _templates
+

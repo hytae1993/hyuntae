@@ -1,0 +1,12 @@
+eyebrow: Researcher · Engineer
+headline: Research, mathematics, and code.
+intro: 논문을 읽고, 수학적 원리를 이해하고, 직접 구현하며 배운 내용을 기록합니다.
+
+# 실제 프로젝트가 준비되면 아래 형식으로 추가하세요.
+# projects:
+#   - title: Project title
+#     summary: 한두 문장으로 작성한 프로젝트 설명
+#     meta: Research · 2026
+#     url: /project-url/
+projects: []
+

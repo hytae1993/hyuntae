@@ -1,0 +1,13 @@
+- slug: linear-algebra
+  title: Linear Algebra
+  description: 벡터 공간, 행렬, 고윳값과 선형 변환
+- slug: probability-statistics
+  title: Probability & Statistics
+  description: 확률 모형, 추론, 통계적 학습의 기초
+- slug: geometry
+  title: Geometry
+  description: 유클리드 기하부터 다양체와 기하적 관점까지
+- slug: optimization
+  title: Optimization
+  description: 최적화 이론, 알고리즘, 학습 문제의 해법
+
