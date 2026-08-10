@@ -9,15 +9,15 @@ layout: default
     <p>{{ page.description }}</p>
   </header>
 
-  {% assign research_posts = site.posts | where: 'section', 'research' %}
-  {% if research_posts.size > 0 %}
-    {% assign task_groups = research_posts | group_by: 'task' | sort: 'name' %}
+  {% assign paper_posts = site.posts | where: 'section', 'papers' %}
+  {% if paper_posts.size > 0 %}
+    {% assign task_groups = paper_posts | group_by: 'task' | sort: 'name' %}
     <div class="task-groups">
       {% for group in task_groups %}
       <section class="task-group">
         <div class="task-heading">
           <h2>{{ group.name | default: 'Uncategorized' }}</h2>
-          <span>{{ group.items.size }} notes</span>
+          <span>{{ group.items.size }} papers</span>
         </div>
         <div class="notes-list">
           {% for post in group.items %}{% include post-list-item.html post=post %}{% endfor %}
@@ -27,7 +27,7 @@ layout: default
     </div>
   {% else %}
     <div class="empty-state">
-      <strong>첫 번째 논문 노트를 준비 중입니다.</strong>
+      <strong>첫 번째 논문 정리를 준비 중입니다.</strong>
       <p>글을 추가하면 이 페이지에서 task별로 자동 분류됩니다.</p>
     </div>
   {% endif %}

@@ -8,7 +8,7 @@ layout: default
     <h1 id="portfolio-title">{{ site.data.portfolio.headline }}</h1>
     <p class="portfolio-intro">{{ site.data.portfolio.intro }}</p>
     <div class="portfolio-links">
-      <a class="primary-link" href="{{ '/research/' | relative_url }}">Explore research notes <span aria-hidden="true">→</span></a>
+      <a class="primary-link" href="{{ '/papers/' | relative_url }}">Explore paper reviews <span aria-hidden="true">→</span></a>
       <a href="https://github.com/hytae1993">GitHub <span aria-hidden="true">↗</span></a>
     </div>
   </section>
@@ -37,11 +37,11 @@ layout: default
       <h2 id="archive-title">What I study</h2>
     </div>
     <div class="archive-grid">
-      <a class="archive-card" href="{{ '/research/' | relative_url }}">
+      <a class="archive-card" href="{{ '/papers/' | relative_url }}">
         <span class="archive-card-index">01</span>
-        <h3>Research Notes</h3>
-        <p>공부한 논문을 연구 task별로 정리합니다.</p>
-        <span class="archive-card-link">View notes →</span>
+        <h3>Paper Reviews</h3>
+        <p>공부한 논문을 task별로 정리합니다.</p>
+        <span class="archive-card-link">View papers →</span>
       </a>
       <a class="archive-card" href="{{ '/mathematics/' | relative_url }}">
         <span class="archive-card-index">02</span>
@@ -71,4 +71,3 @@ layout: default
   </section>
   {% endif %}
 </div>
-
