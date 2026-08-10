@@ -70,7 +70,35 @@ body {
 }
 
 .content-wide {
-  max-width: 78rem;
+  max-width: none;
+}
+
+.content-toc {
+  margin-bottom: 2rem;
+  border: 1px solid var(--portfolio-line);
+  border-radius: .25rem;
+}
+
+.content-toc summary {
+  padding: .8rem 1rem;
+  color: var(--portfolio-ink);
+  background: var(--portfolio-soft);
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.content-toc .toc-nav {
+  max-height: none;
+  overflow: visible;
+  border: 0;
+  border-top: 1px solid var(--portfolio-line);
+  border-radius: 0;
+}
+
+.content-toc .toc-nav > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 
 .footer {
@@ -93,13 +121,13 @@ body {
 }
 
 .portfolio-hero {
-  max-width: 58rem;
+  max-width: none;
   padding: clamp(1rem, 4vw, 4rem) 0 clamp(3.5rem, 7vw, 7rem);
   border-bottom: 1px solid var(--portfolio-line);
 }
 
 .portfolio-hero h1 {
-  max-width: 55rem;
+  max-width: none;
   margin: 0;
   color: var(--portfolio-ink);
   font-family: var(--text-font);
@@ -110,7 +138,7 @@ body {
 }
 
 .portfolio-intro {
-  max-width: 42rem;
+  max-width: none;
   margin: 2rem 0 0;
   color: var(--portfolio-muted);
   font-size: clamp(1rem, 1.8vw, 1.3rem);
@@ -254,7 +282,7 @@ body {
 }
 
 .section-page-header {
-  max-width: 52rem;
+  max-width: none;
   padding: clamp(1rem, 4vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4.5rem);
 }
 
@@ -269,7 +297,7 @@ body {
 }
 
 .section-page-header > p:last-child {
-  max-width: 40rem;
+  max-width: none;
   margin: 1.5rem 0 0;
   color: var(--portfolio-muted);
   font-size: 1.05rem;
@@ -409,12 +437,13 @@ body {
 }
 
 .protected-notes {
-  max-width: 58rem;
+  width: 100%;
+  max-width: none;
   padding: clamp(1rem, 4vw, 3.5rem) 0;
 }
 
 .protected-notes-header {
-  max-width: 46rem;
+  max-width: none;
   padding-bottom: 2.5rem;
 }
 
@@ -431,14 +460,16 @@ body {
 
 .protected-notes-header > p:last-child,
 .private-page-header > p:last-child {
-  max-width: 40rem;
+  max-width: none;
   margin: 1.5rem 0 0;
   color: var(--portfolio-muted);
   line-height: 1.7;
 }
 
 .unlock-form {
-  max-width: 34rem;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
   padding: 1.5rem;
   background: var(--portfolio-soft);
   border: 1px solid var(--portfolio-line);
@@ -538,7 +569,7 @@ body {
 }
 
 .private-page-header {
-  max-width: 56rem;
+  max-width: none;
   padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
@@ -675,7 +706,7 @@ body {
 }
 
 .private-document {
-  max-width: 52rem;
+  max-width: none;
   padding-top: 2rem;
   border-top: 1px solid var(--portfolio-line);
 }
