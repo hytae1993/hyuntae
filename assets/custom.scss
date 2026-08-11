@@ -190,7 +190,7 @@ body {
   padding: clamp(2.5rem, 6vw, 5.5rem) 0 1rem;
   color: var(--portfolio-ink);
   font-family: var(--text-font);
-  font-size: clamp(1rem, .45vw + .9rem, 1.15rem);
+  font-size: clamp(1rem, calc(.45vw + .9rem), 1.15rem);
   line-height: 1.82;
 }
 
