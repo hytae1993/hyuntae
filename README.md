@@ -7,6 +7,7 @@ Not Pure Poole 테마를 사용하는 GitHub Pages 포트폴리오입니다.
 - `/` — 포트폴리오 메인 페이지
 - `/papers/` — task별 논문 정리
 - `/research_notes/` — 비밀번호로 암호화된 개인 연구노트
+- `/artificial-intelligence/` — 인공지능 개념, 모델, 학습 방법 정리
 - `/mathematics/` — 선형대수, 확률·통계, 기하학, 최적화
 - `/coding/` — 별도 하위 분류가 없는 코딩 노트
 
@@ -15,6 +16,7 @@ Not Pure Poole 테마를 사용하는 GitHub Pages 포트폴리오입니다.
 1. `_templates`에서 목적에 맞는 파일을 복사합니다.
 2. 글 종류에 맞는 폴더에 `YYYY-MM-DD-영문-슬러그.md` 형식으로 저장합니다.
    - 논문 정리: `_posts/papers/`
+   - 인공지능: `_posts/artificial-intelligence/`
    - 수학: `_posts/mathematics/`
    - 코딩: `_posts/coding/`
 3. 상단 설정과 본문을 수정합니다.
